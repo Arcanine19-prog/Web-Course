@@ -1,0 +1,16 @@
+.container {
+    border: 2px solid black;
+    width: 100%;
+    height: 500px;
+    align-items: center; /* Centering content vertically */
+}
+
+#para {
+    border: 2px solid black;
+    background-color: white;
+    width: 50%;
+    text-align: center;
+    height: 300px;
+    line-height: 100px; /* Vertically centers text inside the box */
+    margin: 0 auto; /* Centers the element horizontally */
+}

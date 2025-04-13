@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise-8[JavaScript]</title>
+  </head>
+  <script type="text/javascript">
+    function calculate() {
+      var num1 = parseFloat(prompt("Enter the first number:"));
+      var num2 = parseFloat(prompt("Enter the second number:"));
+      var operator = prompt("Choose an operator (+, -, *, /, %):");
+      var result;
+      switch (operator) {
+        case "+":
+          result = num1 + num2;
+          break;
+        case "-":
+          result = num1 - num2;
+          break;
+        case "*":
+          result = num1 * num2;
+          break;
+        case "/":
+          if (num2 === 0) {
+            result = "Error: Division by zero is not allowed.";
+          } else {
+            result = num1 / num2;
+          }
+          break;
+        case "%":
+          result = num1 % num2;
+          break;
+        default:
+          result = "Invalid operation!";
+      }
+      alert("The result is: " + result);
+    }
+
+    function Eligible(){
+        var age = parseFloat(prompt("Enter your Age:"));
+        if(age>20){
+            alert("You are Eligible to Drive");
+        }
+        else{
+            alert("You are Not Eligible to Drive");
+        }
+    }
+
+    function RegNo(){
+        confirm("Are You a Student of VIT?");
+         var reg_no =(prompt("Enter your Reg No:"));
+         alert("Your Reg No is: "+ reg_no);
+    }
+
+    function total(){
+        var ad=parseInt(document.F1.t1.value);
+        var ch=parseInt(document.F1.t2.value);
+        tot=(10*ad)+(5*ch);
+        alert(tot);
+    }
+    function Charge(){
+      var rp=parseInt("45");
+      var hw=parseInt(document.F2.t1.value);
+      var cm=parseInt(document.F2.t2.value);
+      var lc=rp*hw;
+      var to=lc+cm;
+      alert("Labour Cost:"+lc);
+      alert("Total Charge:"+to);
+    }
+
+  </script>
+  <body align="center">
+    <h1 style="color: brown">Question-1</h1>
+    <button onclick="calculate()">Use Calculator</button>
+    <hr>
+
+    <h1 style="color: brown;">Question-2</h1>
+    <button onclick="Eligible()">Ckeck Are You Elligible to Drive?</button>
+
+     <hr>
+
+    <h1 style="color: brown;">Question-3</h1>
+    <button onclick="RegNo()">Enter Your Registration Number</button>
+    <hr>
+
+    <h1 style="color: brown;">Question-4</h1>
+    <form name="F2">
+      <p>No of Hours Work:<input type="text" id="t1"></p>
+      <p>Cost of Materials:<input type="text" id="t2"></p>
+      <button onclick="Charge()">Labours Cost and Total Charge</button>
+
+    </form>
+    <hr>
+
+    <h1 style="color: brown;">Question-5</h1>
+    <script>
+      document.write('<div style="border: 4px solid red; text-align: center; font-weight: bold; padding: 10px; width: 100px; margin: 10px auto;">23BCE5137</div>');
+    </script>
+    <div id="d1" style="border: 2px solid black; text-align: center; width: 150px; margin: 10px auto; padding: 10px;"></div>
+    <script>
+      document.getElementById("d1").innerHTML = '<span style="color: red; font-weight: bold;">Prasenjit Choudhury</span>';
+    </script>
+
+    <hr>
+    
+    <h1 style="color: brown;">Question-6</h1>
+    <form name="F1">
+      <p>Adults[Rup 10 each]<input type="text" id="t1"></p>
+      <p>Children[Rup 5 each]<input type="text" id="t2"></p>
+      <input type="button" value="Total" onclick="total()">
+    </form>
+    <hr>
+  </body>
+ 
+</html>

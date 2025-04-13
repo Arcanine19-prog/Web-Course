@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Charts with Plotly.js</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .chart-container { width: 50%; display: inline-block; }
+    </style>
+</head>
+<body>
+
+    <div class="chart-container"><div id="barChart"></div></div>
+    <div class="chart-container"><div id="lineChart"></div></div>
+    <div class="chart-container"><div id="pieChart"></div></div>
+    <div class="chart-container"><div id="donutChart"></div></div>
+
+    <script>
+        const xValues = ["A", "B", "C", "D", "E"];
+        const yValues = [10, 20, 15, 30, 25];
+        const colors = ["red", "blue", "green", "purple", "orange"];
+
+        Plotly.newPlot("barChart", [{
+            x: xValues, y: yValues, type: "bar", marker: { color: colors }
+        }], { title: "Bar Chart", xaxis: { title: "Categories" }, yaxis: { title: "Values" } });
+
+        Plotly.newPlot("lineChart", [{
+            x: xValues, y: yValues, type: "scatter", mode: "lines+markers", marker: { color: "blue" }
+        }], { title: "Line Chart", xaxis: { title: "Categories" }, yaxis: { title: "Values" } });
+
+        Plotly.newPlot("pieChart", [{
+            labels: xValues, values: yValues, type: "pie", marker: { colors: colors }
+        }], { title: "Pie Chart" });
+
+        Plotly.newPlot("donutChart", [{
+            labels: xValues, values: yValues, type: "pie", hole: 0.4, marker: { colors: colors }
+        }], { title: "Donut Chart" });
+
+    </script>
+</body>
+</html>

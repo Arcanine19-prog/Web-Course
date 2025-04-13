@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <script>
+      function calc() {
+        var genderSelect = document.getElementById("gender");
+        var gender = genderSelect.options[genderSelect.selectedIndex].value;
+
+        var weightInPounds = parseFloat(document.getElementById("t1").value);
+        var weightInKg = weightInPounds * 0.453592;
+
+        var heightInFeet = parseFloat(document.getElementById("t2").value);
+        var heightInInches = parseFloat(document.getElementById("t3").value);
+        var totalHeightInMeters = ((heightInFeet * 12) + heightInInches) * 0.0254;
+
+        var BMI = weightInKg / (totalHeightInMeters * totalHeightInMeters);
+        BMI = BMI.toFixed(2);
+        document.getElementById("t4").value = BMI;
+
+        if (gender === "male") {
+          if (BMI < 17.50) {
+            alert("Anorexia");
+          } else if (BMI >= 17.50 && BMI <= 19.10) {
+            alert("Underweight");
+          } else if (BMI >= 19.11 && BMI <= 25.80) {
+            alert("Ideal Range");
+          } else if (BMI >= 25.81 && BMI <= 27.30) {
+            alert("Marginally Overweight");
+          } else if (BMI >= 27.31 && BMI <= 32.30) {
+            alert("Overweight");
+          } else {
+            alert("Obese");
+          }
+        } else if (gender === "female") {
+          if (BMI < 17.50) {
+            alert("Anorexia");
+          } else if (BMI >= 17.50 && BMI <= 20.70) {
+            alert("Underweight");
+          } else if (BMI >= 20.71 && BMI <= 26.40) {
+            alert("Ideal Range");
+          } else if (BMI >= 26.41 && BMI <= 27.80) {
+            alert("Marginally Overweight");
+          } else if (BMI >= 27.81 && BMI <= 31.10) {
+            alert("Overweight");
+          } else {
+            alert("Obese");
+          }
+        } else {
+          alert("Please select a gender.");
+        }
+      }
+    </script>
+</head>
+<body align="center">
+
+
+  <h1 style="color: brown"><b>Question-1</b></h1>
+  <table border="1">
+  </table>
+  <script src="script1.js"></script>
+
+  <hr>
+  <h1 style="color: brown"><b>Question-2</b></h1>
+
+  <table border="2">      
+    <tr>
+      <th>Seat Number</th>
+      <th>Seat Status</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td class="seat">0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td class="seat">0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td class="seat">0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td class="seat">0</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td class="seat">0</td>
+    </tr>
+      <td>6</td>
+      <td class="seat">0</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td class="seat">0</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td class="seat">0</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td class="seat">0</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td class="seat">0</td>
+    </tr>
+  </table>
+  <div>
+    <p>Select your seat Category<br>
+      1: First-class<br>
+      2: Economy<br>
+    </p>
+    <form action="">
+      <label for="">Name: </label>
+      <input type="text" id="input-name">
+      <br>
+      <label for="">Choice: </label>
+      <input type="text" name="i1" id="input-choice"><br>
+      <button onclick="bookSeat()" id="submit-button">Submit</button>
+    </form>
+  </div>
+  <script src="script2.js"></script>
+
+  <hr>
+
+  <h1 style="color: brown"><b>Question-3</b></h1>
+  <h1 style="color: rgb(20, 3, 3)"><b>BMI Calculator</b></h1>
+  <table border="2" align="center" cellpadding="10">
+      <tr>
+        <th>
+          <b>Select Gender:</b>
+          <select id="gender">
+            <option value="">--Select Gender--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </th>
+      </tr>
+
+      <tr>
+        <td>
+          <b>Enter Your Weight [in pounds]:</b><br />
+          <input type="text" id="t1" />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <b>Enter Your Height:</b><br />
+          [feet] <input type="text" id="t2" /><br />
+          [inches] <input type="text" id="t3" />
+        </td>
+      </tr>
+
+      <tr>
+        <td><button onclick="calc()">Calculate BMI</button></td>
+      </tr>
+
+      <tr>
+        <td><b>Your BMI:</b> <input type="text" id="t4" readonly /></td>
+      </tr>
+  </table>   
+</body>
+</html>

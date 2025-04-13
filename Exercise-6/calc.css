@@ -1,0 +1,29 @@
+table,
+th,
+td {
+  border: 9px solid #64b8df;
+  border-collapse: collapse;
+  padding: 15px;
+  border: radius 12px;
+}
+
+.calc {
+  background-color: rgb(230, 119, 137);
+  color: white;
+}
+.space {
+  background-color: rgb(140, 175, 173);
+}
+.plus,
+.minus,
+.div,
+.mul {
+  background-color: rgb(240, 218, 221);
+}
+.one {
+  color: white;
+  background-color: rgb(112, 94, 177);
+}
+.equal {
+  background-color: rgb(217, 250, 127);
+}

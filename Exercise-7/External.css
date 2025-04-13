@@ -1,0 +1,42 @@
+
+body{
+    background-image:url("image3.jpg");
+}
+svg {
+    overflow: visible;
+}
+
+  @keyframes ball-animation {
+    0% {
+      transform: translate(0px, 0px) rotate(0deg);
+    }
+    25% {
+      transform: translate(50px, 50px) rotate(45deg);
+    }
+    50% {
+      transform: translate(100px, 50px) rotate(90deg);
+    }
+    75% {
+      transform: translate(50px, 100px) rotate(135deg);
+    }
+    100% {
+      transform: translate(0px, 0px) rotate(360deg);
+    }
+}
+
+  .ball-group {
+    animation: ball-animation 5s infinite;
+}
+
+  .svg-container {
+    position: absolute;
+    top: 940px;
+    left: 550px;
+    display: flex;
+    justify-content: center;
+}
+#dog {
+    position: absolute;
+    top: 1100px;
+    left: 500px;
+}

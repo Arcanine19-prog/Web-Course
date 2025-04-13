@@ -1,0 +1,6 @@
+.container{
+    align-items: flex-end;
+    text-align: center;
+    /* border: 4px solid rgb(3, 3, 48); */
+    /* border-collapse: collapse; */
+}

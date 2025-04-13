@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23BCE5137</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b0b69c;
+            text-align: center;
+        }
+        .container {
+            background-color: #798066;
+            padding: 20px;
+            width: 50%;
+            margin: auto;
+            border-radius: 10px;
+            color: white;
+        }
+        input {
+            margin: 5px;
+            padding: 5px;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+        .submit-btn {
+            background-color: #a67c52;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .input-field {
+            padding: 5px;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="color: brown"><b>Question-1</b></h1>
+    
+    <button onclick="displaySortedPatients()">Sort Patients by Age (Descending)</button>
+    <br><br>
+    <input type="number" id="patientId" placeholder="Enter Patient ID">
+    <button onclick="checkPatient()">Check Patient Presence</button>
+    <p id="patientCheckResult"></p>
+    <br>
+    <input type="number" id="minAge" placeholder="Min Age">
+    <input type="number" id="maxAge" placeholder="Max Age">
+    <button onclick="filterByAge()">Filter by Age</button>
+    <p id="filteredPatients"></p>
+    <script src="script1.js"></script>
+    <hr>
+
+
+    <h1 style="color: brown"><b>Question-2</b></h1>
+    
+    <h1 id="title">Original Title</h1>
+
+    <form>
+        <label>Username:</label>
+        <input type="text" name="username" class="input-field"><br><br>
+
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <br><br>
+
+        <label>Hobbies:</label>
+        <input type="checkbox" class="hobby" value="Reading"> Reading
+        <input type="checkbox" class="hobby" value="Gaming"> Gaming
+        <input type="checkbox" class="hobby" value="Traveling"> Traveling
+        <br><br>
+    </form>
+
+    <p class="info">Info Paragraph 1</p>
+    <p class="info">Info Paragraph 2</p>
+
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+    <p>Paragraph 3</p>
+
+    <script src="script2.js"></script>
+
+    <hr>
+    <h1 style="color: brown"><b>Question-3</b></h1>
+
+    <div class="container">
+        <h1>Grocery Order Form</h1>
+        <form id="orderForm">
+            <label>Customer Name: </label>
+            <input type="text" id="name" required><br>
+
+            <label>Phone Number: </label>
+            <input type="text" id="phone" required><br>
+
+            <label>Email: </label>
+            <input type="email" id="email" required><br>
+
+            <h2>Products</h2>
+
+            <div class="product">
+                <label><input type="checkbox" name="product" value="Apple" data-price="10"> Apple - $10/kg</label>
+                <input type="number" name="quantity" min="0" placeholder="kg">
+            </div>
+
+            <div class="product">
+                <label><input type="checkbox" name="product" value="Banana" data-price="5"> Banana - $5/kg</label>
+                <input type="number" name="quantity" min="0" placeholder="kg">
+            </div>
+
+            <div class="product">
+                <label><input type="checkbox" name="product" value="Avocado" data-price="7"> Avocado - $7/kg</label>
+                <input type="number" name="quantity" min="0" placeholder="kg">
+            </div>
+
+            <button type="button" class="submit-btn" onclick="submitOrder()">SUBMIT</button>
+        </form>
+    </div>
+
+    <script>
+        function submitOrder() {
+            let name = document.getElementById("name").value;
+            let phone = document.getElementById("phone").value;
+            let email = document.getElementById("email").value;
+
+            let products = [];
+            let checkboxes = document.querySelectorAll("input[name='product']:checked");
+            let quantities = document.querySelectorAll("input[name='quantity']");
+
+            checkboxes.forEach((checkbox, index) => {
+                let quantity = quantities[index].value;
+                if (quantity > 0) {
+                    products.push({
+                        name: checkbox.value,
+                        price: checkbox.dataset.price,
+                        quantity: quantity
+                    });
+                }
+            });
+
+            let orderData = {
+                name: name,
+                phone: phone,
+                email: email,
+                products: products
+            };
+
+            localStorage.setItem("order", JSON.stringify(orderData));
+            window.location.href = "receipt.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Receipt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b0b69c;
+            text-align: center;
+        }
+        .container {
+            background-color: #798066;
+            padding: 20px;
+            width: 50%;
+            margin: auto;
+            border-radius: 10px;
+            color: white;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Order Receipt</h1>
+        <p id="customerDetails"></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price/kg</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="orderDetails"></tbody>
+        </table>
+        <h2 id="totalPrice"></h2>
+    </div>
+
+    <script>
+        function loadReceipt() {
+            let order = JSON.parse(localStorage.getItem("order"));
+            if (!order) {
+                document.body.innerHTML = "<h1>No order found!</h1>";
+                return;
+            }
+
+            document.getElementById("customerDetails").innerHTML = `
+                <strong>Name:</strong> ${order.name} <br>
+                <strong>Phone:</strong> ${order.phone} <br>
+                <strong>Email:</strong> ${order.email}
+            `;
+
+            let totalCost = 0;
+            let orderDetails = "";
+
+            order.products.forEach(product => {
+                let productTotal = product.price * product.quantity;
+                totalCost += productTotal;
+
+                orderDetails += `
+                    <tr>
+                        <td>${product.name}</td>
+                        <td>$${product.price}</td>
+                        <td>${product.quantity} kg</td>
+                        <td>$${productTotal}</td>
+                    </tr>
+                `;
+            });
+
+            document.getElementById("orderDetails").innerHTML = orderDetails;
+            document.getElementById("totalPrice").innerText = `Total: $${totalCost}`;
+        }
+
+        window.onload = loadReceipt;
+    </script>
+</body>
+</html>
